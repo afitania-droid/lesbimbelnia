@@ -349,17 +349,21 @@
 
       const totalWeekly = parseInt(freq) * 25000;
 
-      const message = `Halo Kak Nia, saya ingin mendaftar Les Privat Bimbel Nia untuk anak saya:%0A%0A` +
-        `• *Nama Ayah/Bunda:* ${parentName}%0A` +
-        `• *Nama & Kelas Anak:* ${childInfo}%0A` +
-        `• *Lokasi/Alamat:* ${addressInfo}%0A` +
-        `• *Mata Pelajaran:* ${subjects.join(', ')}%0A` +
-        `• *Paket Pertemuan:* ${freq}x per minggu%0A` +
-        `• *Estimasi Biaya:* Rp ${totalWeekly.toLocaleString('id-ID')} / minggu%0A%0A` +
+      // Merangkai isi pesan teks
+      const message = `Halo Kak Nia, saya ingin mendaftar Les Privat Bimbel Nia untuk anak saya:\n\n` +
+        `• *Nama Ayah/Bunda:* ${parentName}\n` +
+        `• *Nama & Kelas Anak:* ${childInfo}\n` +
+        `• *Lokasi/Alamat:* ${addressInfo}\n` +
+        `• *Mata Pelajaran:* ${subjects.join(', ')}\n` +
+        `• *Paket Pertemuan:* ${freq}x per minggu\n` +
+        `• *Estimasi Biaya:* Rp ${totalWeekly.toLocaleString('id-ID')} / minggu\n\n` +
         `Mohon informasi jadwal hari & jam kunjungan yang tersedia. Terima kasih Kak Nia!`;
 
+      // Mengodekan pesan agar karakter khusus (&, spasi, enter) terisi utuh saat masuk ke WhatsApp
+      const encodedMessage = encodeURIComponent(message);
       const waNumber = '6289616303842';
-      window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+      
+      window.open(`https://wa.me/${waNumber}?text=${encodedMessage}`, '_blank');
     }
   </script>
 
