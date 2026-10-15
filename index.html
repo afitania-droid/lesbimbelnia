@@ -110,13 +110,13 @@
         </h2>
 
         <p class="text-slate-700 text-sm md:text-base leading-relaxed font-semibold bg-white/80 p-4 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-          Nggak perlu pusing antar-jemput! Kak Nia siap menemani Adik-Adik kelas 1–6 SD belajar Matematika, B. Indonesia, IPA/IPAS, Pelajaran Agama, hingga bantuan PR sekolah dengan sabar, ramah, dan tanpa stres di meja belajar rumah sendiri.
+          Nggak perlu pusing antar-jemput! Kak Nia siap menemani Adik-Adik kelas 1–6 SD/MI belajar Matematika, B. Indonesia, IPA/IPAS, Pelajaran Agama, hingga bantuan PR sekolah dengan sabar, ramah, dan tanpa stres di meja belajar rumah sendiri.
         </p>
         
         <!-- Quick Stats -->
         <div class="grid grid-cols-3 gap-3 pt-1">
           <div class="bg-sky-200 p-3 rounded-2xl border-2 border-black text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2">
-            <span class="block text-base md:text-lg font-black text-slate-900">Kelas 1–6 SD</span>
+            <span class="block text-base md:text-lg font-black text-slate-900">Kelas 1–6 SD/MI</span>
             <span class="text-[11px] text-slate-800 font-bold">Semua Pelajaran</span>
           </div>
           <div class="bg-rose-200 p-3 rounded-2xl border-2 border-black text-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
@@ -181,7 +181,7 @@
           Mata Pelajaran yang Ditemani Kak Nia 📚
         </h2>
         <p class="text-slate-900 text-xs md:text-sm font-bold mt-3">
-          Sesuai dengan pelajaran sekolah SD (Kurikulum Merdeka & K13) untuk kelas 1 sampai 6.
+          Sesuai dengan pelajaran sekolah SD/MI (Kurikulum Merdeka & K13) untuk kelas 1 sampai 6.
         </p>
       </div>
 
@@ -298,7 +298,7 @@
       <div class="text-center max-w-lg mx-auto mb-8">
         <span class="text-xs font-black bg-white text-slate-900 px-3 py-1 rounded-xl border-2 border-black uppercase tracking-wider inline-block">Hitung Biaya & Daftar</span>
         <h2 class="text-3xl md:text-4xl font-black text-slate-900 mt-2">Yuk, Jadwalkan Belajar Bareng Kak Nia! 📝</h2>
-        <p class="text-slate-900 text-xs md:text-sm font-bold mt-1">Ayah / Bunda cukup isi form singkat di bawah ini untuk terhubung langsung via WhatsApp.</p>
+        <p class="text-slate-900 text-xs md:text-sm font-bold mt-1">Ayah / Bunda cukup isi form di bawah ini untuk terhubung langsung via WhatsApp.</p>
       </div>
 
       <div class="card-playful bg-white p-6 md:p-8">
@@ -310,8 +310,31 @@
             </div>
 
             <div>
-              <label class="block text-xs font-black text-slate-900 mb-1">Nama & Kelas Adik *</label>
-              <input type="text" id="childInfo" required placeholder="Contoh: Budi (Kelas 3 SD)" class="w-full text-xs font-bold p-3 rounded-xl border-2 border-black focus:ring-2 focus:ring-amber-400 outline-none bg-amber-50/50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              <label class="block text-xs font-black text-slate-900 mb-1">Nama Lengkap Adik *</label>
+              <input type="text" id="childName" required placeholder="Contoh: Budi Pratama" class="w-full text-xs font-bold p-3 rounded-xl border-2 border-black focus:ring-2 focus:ring-amber-400 outline-none bg-amber-50/50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-black text-slate-900 mb-1">Pilih Kelas Adik *</label>
+              <select id="childClass" required class="w-full text-xs font-bold p-3 rounded-xl border-2 border-black focus:ring-2 focus:ring-amber-400 outline-none bg-amber-50/50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <option value="" disabled selected>-- Pilih Kelas --</option>
+                <option value="Kelas 1">Kelas 1</option>
+                <option value="Kelas 2">Kelas 2</option>
+                <option value="Kelas 3">Kelas 3</option>
+                <option value="Kelas 4">Kelas 4</option>
+                <option value="Kelas 5">Kelas 5</option>
+                <option value="Kelas 6">Kelas 6</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-black text-slate-900 mb-1">Tingkat Sekolah (SD / MI) *</label>
+              <select id="schoolType" required class="w-full text-xs font-bold p-3 rounded-xl border-2 border-black focus:ring-2 focus:ring-amber-400 outline-none bg-amber-50/50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <option value="SD">SD (Sekolah Dasar)</option>
+                <option value="MI">MI (Madrasah Ibtidaiyah)</option>
+              </select>
             </div>
           </div>
 
@@ -333,22 +356,114 @@
 
           <div>
             <label class="block text-xs font-black text-slate-900 mb-2">Pelajaran yang Ingin Difokuskan / Dibantu PR-nya</label>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2.5 text-xs font-bold">
+            <!-- Kategori Pilihan -->
+          <div class="space-y-4">
+            <label class="block text-xs font-black text-slate-900 border-b-2 border-black pb-1">1. Pilihan Kurikulum *</label>
+            <div class="grid grid-cols-2 gap-2 text-xs font-bold">
               <label class="flex items-center gap-2 p-2.5 bg-amber-50 rounded-xl border-2 border-black cursor-pointer hover:bg-amber-100 transition">
+                <input type="radio" name="kurikulum" value="Kurikulum Merdeka" checked class="w-4 h-4 accent-amber-500 border-2 border-black"> Kurikulum Merdeka
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-amber-50 rounded-xl border-2 border-black cursor-pointer hover:bg-amber-100 transition">
+                <input type="radio" name="kurikulum" value="Kurikulum 2013" class="w-4 h-4 accent-amber-500 border-2 border-black"> Kurikulum 2013 (K13)
+              </label>
+            </div>
+
+            <label class="block text-xs font-black text-slate-900 border-b-2 border-black pb-1 pt-2">2. Pilihan Mata Pelajaran Umum</label>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-bold">
+              <label class="flex items-center gap-2 p-2.5 bg-sky-50 rounded-xl border-2 border-black cursor-pointer hover:bg-sky-100 transition">
                 <input type="checkbox" name="subject" value="Matematika" checked class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Matematika
               </label>
               <label class="flex items-center gap-2 p-2.5 bg-sky-50 rounded-xl border-2 border-black cursor-pointer hover:bg-sky-100 transition">
-                <input type="checkbox" name="subject" value="B. Indonesia" checked class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> B. Indonesia
+                <input type="checkbox" name="subject" value="Bahasa Indonesia" checked class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Bahasa Indonesia
+              </label>
+              
+              <!-- Pilihan IPA / IPS / IPAS -->
+              <div class="p-2.5 bg-sky-50 rounded-xl border-2 border-black space-y-1">
+                <span class="block text-[11px] font-black text-slate-900">Sains & Sosial:</span>
+                <div class="flex flex-col gap-1 text-[11px]">
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="IPA" class="accent-amber-500"> IPA</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="IPS" class="accent-amber-500"> IPS</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="IPAS" checked class="accent-amber-500"> IPAS</label>
+                </div>
+              </div>
+
+              <!-- Pilihan PP / PKN / PPKn -->
+              <div class="p-2.5 bg-sky-50 rounded-xl border-2 border-black space-y-1">
+                <span class="block text-[11px] font-black text-slate-900">Kewarganegaraan:</span>
+                <div class="flex flex-col gap-1 text-[11px]">
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="PP" class="accent-amber-500"> PP</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="PKN" class="accent-amber-500"> PKN</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="PPKn" checked class="accent-amber-500"> PPKn</label>
+                </div>
+              </div>
+
+              <!-- Pilihan Seni Budaya / Prakarya / SBDP -->
+              <div class="p-2.5 bg-sky-50 rounded-xl border-2 border-black space-y-1">
+                <span class="block text-[11px] font-black text-slate-900">Seni & Prakarya:</span>
+                <div class="flex flex-col gap-1 text-[11px]">
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="Seni Budaya" class="accent-amber-500"> Seni Budaya</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="Prakarya" class="accent-amber-500"> Prakarya</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="Seni dan Budaya" class="accent-amber-500"> Seni dan Budaya</label>
+                  <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" name="subject" value="SBDP" class="accent-amber-500"> SBDP</label>
+                </div>
+              </div>
+
+              <label class="flex items-center gap-2 p-2.5 bg-sky-50 rounded-xl border-2 border-black cursor-pointer hover:bg-sky-100 transition self-start">
+                <input type="checkbox" name="subject" value="PJOK" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> PJOK (Penjasorkes)
+              </label>
+            </div>
+
+            <label class="block text-xs font-black text-slate-900 border-b-2 border-black pb-1 pt-2">3. Pilihan Muatan Lokal</label>
+            <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+              <label class="flex items-center gap-2 p-2.5 bg-emerald-50 rounded-xl border-2 border-black cursor-pointer hover:bg-emerald-100 transition">
+                <input type="checkbox" name="subject" value="Bahasa Jawa" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Bahasa Jawa
               </label>
               <label class="flex items-center gap-2 p-2.5 bg-emerald-50 rounded-xl border-2 border-black cursor-pointer hover:bg-emerald-100 transition">
-                <input type="checkbox" name="subject" value="IPA / IPAS" checked class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> IPA / IPAS
+                <input type="checkbox" name="subject" value="Bahasa Inggris" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Bahasa Inggris
+              </label>
+            </div>
+
+            <label class="block text-xs font-black text-slate-900 border-b-2 border-black pb-1 pt-2">4. Pilihan Mata Pelajaran Agama</label>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs font-bold">
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Pendidikan Agama Islam (SD)" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Pend. Agama Islam (SD)
               </label>
               <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
-                <input type="checkbox" name="subject" value="Pelajaran Umum / Agama" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Pelajaran Umum / Agama
+                <input type="checkbox" name="subject" value="Baca Tulis Al-Qur'an (BTA)" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Baca Tulis Al-Qur'an (BTA)
               </label>
-              <label class="flex items-center gap-2 p-2.5 bg-rose-50 rounded-xl border-2 border-black cursor-pointer hover:bg-rose-100 transition">
-                <input type="checkbox" name="subject" value="Bantuan PR Sekolah" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Bantuan PR Sekolah
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Al-Qur'an Hadis" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Al-Qur'an Hadis
               </label>
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Akidah Akhlak" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Akidah Akhlak
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Fikih" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Fikih
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Sejarah Kebudayaan Islam (SKI)" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> SKI
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Bahasa Arab" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Bahasa Arab
+              </label>
+              <label class="flex items-center gap-2 p-2.5 bg-purple-50 rounded-xl border-2 border-black cursor-pointer hover:bg-purple-100 transition">
+                <input type="checkbox" name="subject" value="Ke-NU-an / Aswaja" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Ke-NU-an / Aswaja
+              </label>
+            </div>
+
+              <label class="block text-xs font-black text-slate-900 border-b-2 border-black pb-1 pt-2">5. Pilihan Tambahan & Bantuan PR</label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs font-bold">
+                  <label class="flex items-center gap-2 p-2.5 bg-rose-50 rounded-xl border-2 border-black cursor-pointer hover:bg-rose-100 transition">
+                    <input type="checkbox" name="subject" value="Projek Penguatan Profil Pelajaran Pancasila (P5)" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Projek P5
+                  </label>
+                  <label class="flex items-center gap-2 p-2.5 bg-rose-50 rounded-xl border-2 border-black cursor-pointer hover:bg-rose-100 transition">
+                    <input type="checkbox" name="subject" value="Koding" class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Koding
+                  </label>
+                  <label class="flex items-center gap-2 p-2.5 bg-rose-50 rounded-xl border-2 border-black cursor-pointer hover:bg-rose-100 transition">
+                    <input type="checkbox" name="subject" value="Bantuan PR Sekolah" checked class="w-4 h-4 accent-amber-500 rounded border-2 border-black"> Bantuan PR Sekolah
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -384,7 +499,7 @@
     </div>
   </footer>
 
-  <!-- JavaScript Logics (Sama Persis) -->
+  <!-- JavaScript Logics -->
   <script>
     function calculatePrice() {
       const freq = parseInt(document.getElementById('meetingFreq').value);
@@ -412,6 +527,10 @@
       const addressInfo = document.getElementById('addressInfo').value;
       const freq = document.getElementById('meetingFreq').value;
       
+      // Mengambil nilai Kurikulum yang dipilih (Radio button)
+      const selectedKurikulum = document.querySelector('input[name="kurikulum"]:checked') ? document.querySelector('input[name="kurikulum"]:checked').value : '-';
+
+      // Mengambil daftar mata pelajaran yang dicentang
       const subjects = [];
       document.querySelectorAll('input[name="subject"]:checked').forEach((checkbox) => {
         subjects.push(checkbox.value);
@@ -423,13 +542,14 @@
       const message = `Halo Kak Nia, saya ingin mendaftar Les Privat Bimbel Nia untuk anak saya:\n\n` +
         `• *Nama Ayah/Bunda:* ${parentName}\n` +
         `• *Nama & Kelas Anak:* ${childInfo}\n` +
+        `• *Kurikulum:* ${selectedKurikulum}\n` +
         `• *Lokasi/Alamat:* ${addressInfo}\n` +
-        `• *Mata Pelajaran:* ${subjects.join(', ')}\n` +
+        `• *Pelajaran/Fokus:* ${subjects.join(', ')}\n` +
         `• *Paket Pertemuan:* ${freq}x per minggu\n` +
         `• *Estimasi Biaya:* Rp ${totalWeekly.toLocaleString('id-ID')} / minggu\n\n` +
         `Mohon informasi jadwal hari & jam kunjungan yang tersedia. Terima kasih Kak Nia!`;
 
-      // Mengodekan pesan agar karakter khusus (&, spasi, enter) terisi utuh saat masuk ke WhatsApp
+      // Mengodekan pesan ke URL WhatsApp
       const encodedMessage = encodeURIComponent(message);
       const waNumber = '6289616303842';
       
